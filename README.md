@@ -1,20 +1,20 @@
 DDR Pad Controller
 
-Dit is een Python-script dat seriële communicatie gebruikt om een DDR (Dance Dance Revolution) Pad aan te sturen via een ESP32. Dit project is ontwikkeld als een eindopdracht en biedt een alternatieve oplossing omdat de ESP32 geen HID (Human Interface Device) functionaliteit ondersteunt.
+This is a Python script that uses serial communication to control a DDR (Dance Dance Revolution) Pad via an ESP32. This project was developed as a final assignment and provides an alternative solution because the ESP32 does not support HID (Human Interface Device) functionality.
 
-🎯 Doel
+🎯 Purpose
 
-De ESP32 kan niet direct worden gebruikt als een toetsenbord (HID), daarom wordt seriële communicatie gebruikt om knoppen van het DDR-pad door te sturen naar een computer. Dit script vertaalt de ontvangen seriële signalen naar toetsaanslagen.
+The ESP32 cannot be used directly as a keyboard (HID), so serial communication is used to send button presses from the DDR pad to a computer. This script translates the received serial signals into keystrokes.
 
-🛠 Functionaliteiten
+🛠 Features
 
-Automatische of handmatige selectie van de juiste COM-poort.
+Automatic or manual selection of the correct COM port.
 
-Seriële verbinding maken en verbreken via een eenvoudige GUI.
+Establish and disconnect serial connections via a simple GUI.
 
-Handshake-systeem om de verbinding met de ESP32 te bevestigen.
+Handshake system to confirm the connection with the ESP32.
 
-Leest de input van de ESP32 (W, A, S, D) en simuleert pijltjestoetsen.
+Reads input from the ESP32 (W, A, S, D) and simulates arrow key presses.
 
 W ➝ ⬆️ Up Arrow
 
@@ -24,29 +24,29 @@ S ➝ ⬇️ Down Arrow
 
 D ➝ ➡️ Right Arrow
 
-Logt de ontvangen signalen in een GUI-venster.
+Logs received signals in a GUI window.
 
-Herkent en herstelt verbroken verbindingen automatisch.
+Detects and recovers lost connections automatically.
 
-🖥 Installatie
+🖥 Installation
 
-Python installeren (indien nog niet geïnstalleerd):
+Install Python (if not already installed):
 
-Download en installeer Python 3.8+ via python.org
+Download and install Python 3.8+ from python.org
 
-Benodigde bibliotheken installeren:
+Install required libraries:
 
 pip install pyserial pynput tkinter
 
-Sluit je ESP32 aan via USB en check welke COM-poort wordt gebruikt.
+Connect your ESP32 via USB and check which COM port is being used.
 
-Start het script:
+Start the script:
 
 python ddr_controller.py
 
 ⚙️ Hardware Setup
 
-ESP32 pinout voor DDR Pad:
+ESP32 pinout for DDR Pad:
 
 GPIO 12 = Up (W)
 
@@ -56,49 +56,49 @@ GPIO 14 = Down (S)
 
 GPIO 15 = Right (D)
 
-Verbind de knoppen van je DDR-pad met de ESP32 en zorg dat deze correct worden uitgelezen.
+Connect the buttons of your DDR pad to the ESP32 and ensure they are correctly read.
 
-📜 Hoe het Werkt
+📜 How It Works
 
-Start het Python-script en selecteer de juiste COM-poort.
+Start the Python script and select the correct COM port.
 
-De ESP32 stuurt "HANDSHAKE" totdat het script reageert met "CONNECTED".
+The ESP32 sends "HANDSHAKE" until the script responds with "CONNECTED".
 
-Vanaf dat moment zal de ESP32 elke keer dat een knop wordt ingedrukt de bijbehorende toets (W, A, S, D) via de seriële poort versturen.
+From that moment, every time a button is pressed, the ESP32 will send the corresponding key (W, A, S, D) via the serial port.
 
-Het Python-script vertaalt deze naar de juiste pijltjestoetsen en simuleert deze.
+The Python script translates these into the correct arrow key presses and simulates them.
 
-Wanneer de verbinding wordt verbroken, probeert het script automatisch opnieuw verbinding te maken.
+When the connection is lost, the script attempts to reconnect automatically.
 
-🛠 Mogelijke Problemen & Oplossingen
+🛠 Possible Issues & Solutions
 
-❌ "Kan niet verbinden met COM-poort"
+❌ "Cannot connect to COM port"
 
-Zorg ervoor dat je de juiste poort hebt geselecteerd.
+Ensure you have selected the correct port.
 
-Controleer of geen ander programma de poort bezet houdt.
+Check if another program is using the port.
 
-❌ "ESP32 blijft in Connected Mode hangen"
+❌ "ESP32 remains in Connected Mode"
 
-Als het script crasht, blijft de ESP32 in de connected state. Start de ESP32 opnieuw of stuur handmatig een "DISCONNECT" signaal.
+If the script crashes, the ESP32 remains in the connected state. Restart the ESP32 or manually send a "DISCONNECT" signal.
 
-❌ "Knoppen werken niet"
+❌ "Buttons are not working"
 
-Controleer of de GPIO-pinout correct is aangesloten.
+Check if the GPIO pinout is correctly connected.
 
-Open de Seriële Monitor in de Arduino IDE en kijk of de ESP32 de juiste signalen verstuurt.
+Open the Serial Monitor in the Arduino IDE and see if the ESP32 is sending the correct signals.
 
-📌 Toekomstige Verbeteringen
+📌 Future Improvements
 
-Automatische COM-poort detectie en directe verbinding.
+Automatic COM port detection and direct connection.
 
-Visuele feedback in de GUI voor ingedrukte toetsen.
+Visual feedback in the GUI for pressed keys.
 
-Extra configuratie-opties voor aangepaste toetsbindingen.
+Additional configuration options for custom key bindings.
 
-👨‍💻 Bijdragen
+👨‍💻 Contributions
 
-Pull requests en suggesties zijn welkom! Dit is een leerproject en alle hulp om het te verbeteren wordt gewaardeerd.
+Pull requests and suggestions are welcome! This is a learning project, and any help to improve it is appreciated.
 
-🚀 Veel plezier met je DDR Pad!
+🚀 Enjoy your DDR Pad!
 
